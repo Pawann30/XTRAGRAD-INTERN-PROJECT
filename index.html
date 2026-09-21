@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIFAKE • AI-Generated Synthetic Image Detector</title>
+    <meta name="description" content="State-of-the-art deep learning forensic detector for identifying AI-generated synthetic images and authentic photographs.">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- Site Header -->
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="/" class="brand-logo">
+                <div class="brand-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 12h20M12 2v20"></path>
+                        <circle cx="12" cy="12" r="7"></circle>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <span class="brand-title">CIFAKE Forensics</span>
+                    <span class="brand-subtitle">Deep Learning Verification Engine</span>
+                </div>
+            </a>
+            <div class="nav-status">
+                <span class="status-dot"></span>
+                <span>Neural Engine Active</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="main-wrapper">
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="badge-tag">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+                Next-Gen Deepfake Image Forensics
+            </div>
+            <h1 class="hero-title">
+                Detect <span class="hero-gradient">Synthetic AI</span> vs Real Images
+            </h1>
+            <p class="hero-desc">
+                Leverage convolutional deep neural networks trained on CIFAKE to analyze micro-textures, frequency domain anomalies, and generative artifacts.
+            </p>
+        </section>
+
+        <!-- Main Upload Card -->
+        <div class="glass-card">
+            <form id="uploadForm" action="/predict" method="POST" enctype="multipart/form-data">
+
+                <!-- Drag & Drop Zone -->
+                <div class="upload-box" id="dropZone">
+                    <input
+                        type="file"
+                        id="imageInput"
+                        name="image"
+                        accept="image/png, image/jpeg, image/jpg, image/webp"
+                        required
+                    >
+
+                    <div class="upload-icon-circle">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                    </div>
+
+                    <h3 class="upload-title">Drag & drop your image here</h3>
+                    <p class="upload-subtitle">or browse files from your device to begin forensic scan</p>
+
+                    <div class="upload-formats">
+                        <span>PNG</span>
+                        <span>JPEG</span>
+                        <span>JPG</span>
+                        <span>WEBP</span>
+                        <span>Up to 10MB</span>
+                    </div>
+                </div>
+
+                <!-- Preview Area -->
+                <div class="preview-container" id="previewContainer">
+                    <div class="preview-wrapper" id="previewWrapper">
+                        <div class="scanner-line"></div>
+                        <img id="previewImage" alt="Analysis Preview Target">
+                    </div>
+
+                    <div class="file-info-badge">
+                        <div class="file-details">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                <polyline points="21 15 16 10 5 21"></polyline>
+                            </svg>
+                            <span id="fileNameDisplay">image.jpg</span>
+                            <span id="fileSizeDisplay" style="color: var(--text-muted);">• 0 KB</span>
+                        </div>
+                        <button type="button" class="btn-remove" id="removeBtn" title="Remove selected image">
+                            Change File ✕
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Action Button -->
+                <div class="form-actions">
+                    <button type="submit" id="submitBtn" class="btn-primary" disabled>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <span id="btnText">Analyze Image</span>
+                    </button>
+                </div>
+
+            </form>
+        </div>
+
+        <!-- Highlights & Feature Grid -->
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+                    </svg>
+                </div>
+                <h4 class="feature-title">Sub-Pixel Artifact Forensics</h4>
+                <p class="feature-desc">Detects synthetic frequency signatures and unnatural diffusion patterns invisible to the human eye.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                    </svg>
+                </div>
+                <h4 class="feature-title">CIFAKE Dataset Benchmarked</h4>
+                <p class="feature-desc">Calibrated against 120,000+ balanced synthetic (Stable Diffusion) and authentic real-world images.</p>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-icon-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                </div>
+                <h4 class="feature-title">Calibrated Confidence</h4>
+                <p class="feature-desc">Yields accurate probabilistic confidence indicators alongside automated explainable summaries.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div>CIFAKE Synthetic Image Classification & Explainable Identification</div>
+        <div class="footer-credits">Powered by TensorFlow Keras Deep Neural Architecture</div>
+    </footer>
+
+    <!-- Interactive Client Script -->
+    <script>
+        const imageInput = document.getElementById('imageInput');
+        const dropZone = document.getElementById('dropZone');
+        const previewContainer = document.getElementById('previewContainer');
+        const previewImage = document.getElementById('previewImage');
+        const fileNameDisplay = document.getElementById('fileNameDisplay');
+        const fileSizeDisplay = document.getElementById('fileSizeDisplay');
+        const submitBtn = document.getElementById('submitBtn');
+        const removeBtn = document.getElementById('removeBtn');
+        const uploadForm = document.getElementById('uploadForm');
+        const previewWrapper = document.getElementById('previewWrapper');
+        const btnText = document.getElementById('btnText');
+
+        function formatBytes(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+        }
+
+        function handleFile(file) {
+            if (!file || !file.type.startsWith('image/')) {
+                alert('Please select a valid image file (PNG, JPEG, JPG, WEBP).');
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                previewImage.src = e.target.result;
+                fileNameDisplay.textContent = file.name;
+                fileSizeDisplay.textContent = '• ' + formatBytes(file.size);
+                previewContainer.style.display = 'block';
+                dropZone.style.display = 'none';
+                submitBtn.disabled = false;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        imageInput.addEventListener('change', (e) => {
+            if (e.target.files && e.target.files[0]) {
+                handleFile(e.target.files[0]);
+            }
+        });
+
+        // Drag & Drop event handling
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropZone.addEventListener(eventName, (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                dropZone.classList.add('drag-over');
+            }, false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                dropZone.classList.remove('drag-over');
+            }, false);
+        });
+
+        dropZone.addEventListener('drop', (e) => {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+            if (files && files[0]) {
+                imageInput.files = files;
+                handleFile(files[0]);
+            }
+        });
+
+        // Remove / Reset action
+        removeBtn.addEventListener('click', () => {
+            imageInput.value = '';
+            previewImage.src = '';
+            previewContainer.style.display = 'none';
+            dropZone.style.display = 'block';
+            submitBtn.disabled = true;
+            previewWrapper.classList.remove('scanning');
+        });
+
+        // Form Submit animation
+        uploadForm.addEventListener('submit', () => {
+            submitBtn.disabled = true;
+            btnText.textContent = 'Analyzing Deep Patterns...';
+            previewWrapper.classList.add('scanning');
+        });
+    </script>
+</body>
+</html>
